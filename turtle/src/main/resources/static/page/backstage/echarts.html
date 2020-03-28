@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="../../resources/echarts/echarts.min.js"></script>
+    <script src="../../resources/echarts/jquery3.3.1.min.js"></script>
+    <script>
+        $(function(){
+            //动态加载下拉年
+            var currentYear =new Date().getFullYear();
+            var options ="";
+            for (var i = currentYear-3; i <= currentYear+3; i++) {
+                if(i==currentYear)
+                    options+=" <option value='"+i+"' selected=\"selected\">"+i+"</option>";
+                else
+                    options+=" <option value='"+i+"'>"+i+"</option>";
+            }
+            $("#year").append(options);
+
+            //年份发生变化时
+            $("#year").change(function(){
+                var year=$("#year").val();
+                var month=$("#month").val();
+                getData(year,month);
+            });
+            //月份发生变化时
+            $("#month").change(function(){
+                var year=$("#year").val();
+                var month=$("#month").val();
+                getData(year,month);
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+年
+<select id="year">
+</select>
+月
+<select id="month">
+    <option value="0" >请选择</option>
+    <option value="01">1</option>
+    <option value="02">2</option>
+    <option value="03">3</option>
+    <option value="04">4</option>
+    <option value="05">5</option>
+    <option value="06">6</option>
+
+    <option value="07">7</option>
+    <option value="08">8</option>
+    <option value="09">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+</select>
+<div id="main" style="width: 1100px;height:700px;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    var ysVal=[];
+    var sjVal=[];
+    var currentYear =new Date().getFullYear();
+
+
+    getData(currentYear,0);
+
+    function getData(year,month) {
+        $.ajax({
+            url: "/chart/rentedchart",
+            type: "post",
+            data: {year: year, month: month},
+            dataType: "json",
+            // async: false,//同步操作
+            success: function (data) {
+                var xData=[];
+                var yData1=[];
+                // alert(data.year+","+data.month);
+                for (var i = 0; i < data.length; i++) {
+                    var obj = data[i];
+                    xData.push(obj.months);
+                    yData1.push(obj.zh);
+                    //yData2.push(obj.c);
+                }
+                // 指定图表的配置项和数据
+                var option = {
+                    title : {
+                        text: '收租统计',
+                        subtext: '真实数据'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['租金总和']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            dataView : {show: true, readOnly: false},
+                            magicType : {show: true, type: ['line', 'bar']},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : xData
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'租金总和',
+                            type:'bar',
+                            data:yData1,
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name: '平均值'}
+                                ]
+                            }
+                        },
+                        /*{
+                            name:'租的数量',
+                            type:'bar',
+                            data:yData2,
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '平均值'}
+                                ]
+                            }
+                        }*/
+                    ]
+                };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            }
+        })
+    }
+
+
+</script>
+</body>
+</html>

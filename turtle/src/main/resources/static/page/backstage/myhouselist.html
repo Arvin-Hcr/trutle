@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瑰居</title>
+    <link rel="icon" href="../../resources/images/favicon.ico"/>
+    <script src="../../resources/js/jquery.js"></script>
+    <script src="../../resources/vue/vue.js"></script>
+    <script src="../../resources/js/ele.js"></script>
+    <link href="../../resources/css/ele.css" rel="stylesheet">
+    <style>
+        #role {
+            height: 100%;
+            background-color: #DCDFE6;
+        }
+
+        #role img {
+            width: 50px;
+            margin-left: 5px;
+            margin-top: 0px;
+            float: left
+        }
+
+        #role h1 {
+            float: left;
+        }
+
+        body .el-container {
+            height: 100%;
+            margin-bottom: 40px;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+        }
+
+        .el-header, .el-footer {
+            background-color: #E4E7ED;
+            color: #333;
+            text-align: center;
+        }
+
+        .el-main {
+            height: 400px;
+            background-color: #EBEEF5;
+            color: #333;
+            text-align: center;
+        }
+
+        .el-main .el-table {
+            background-color: #F2F6FC;
+        }
+
+        .el-pagination {
+            margin-top: 15px;
+        }
+
+        #eform {
+            text-align: left;
+            float: right;
+        }
+
+        .el-form-item {
+            margin-top: 10px;
+        }
+
+        .el-table td, .el-table th {
+            text-align: center;
+        }
+
+        .yc {
+            text-align: left;
+        }
+
+        .yc .el-form-item {
+            width: 250px;
+            margin-bottom: 0px;
+            margin-left: 27px;
+        }
+
+        .el-input-group__append, .el-input-group__prepend {
+            padding: 0 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="role">
+    <el-container>
+
+        <el-header>
+
+            <image src="../../resources/images/icon/房子.png"></image>
+            <h1>我的房源</h1>
+
+            <el-form :inline="true" class="demo-form-inline" id="eform">
+                <el-form-item label="区域">
+                    <el-input v-model="hadr" placeholder="区域、商圈或小区名" size="medium"></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" @click="load(1)" icon="el-icon-search">查询</el-button>
+                </el-form-item>
+            </el-form>
+
+        </el-header>
+
+        <el-main>
+            <el-table :data="tableData">
+                <el-table-column type="expand">
+                    <template slot-scope="props">
+                        <el-form label-position="left" inline class="demo-table-expand">
+                            <div class="yc">
+                                <el-form-item label="房屋租金:">
+                                    <span>{{ props.row.hrent }}</span>
+                                </el-form-item>
+                                <el-form-item label="房屋楼层:">
+                                    <span>{{ props.row.hfloor }}</span>
+                                </el-form-item>
+                                <el-form-item label="房屋面积:">
+                                    <span>{{ props.row.hspace }}</span>
+                                </el-form-item>
+                            </div>
+                            <div class="yc">
+                                <el-form-item label="房屋朝向:">
+                                    <span>{{ props.row.orientation }}</span>
+                                </el-form-item>
+                                <el-form-item label="发布日期:">
+                                    <span>{{ props.row.releasedate }}</span>
+                                </el-form-item>
+                                <el-form-item label="房屋布局:">
+                                    <span>{{ props.row.hdesc }}</span>
+                                </el-form-item>
+                            </div>
+                            <div class="yc">
+                                <el-form-item label="描述标签:">
+                                    <span v-for="k in props.row.desctag">{{ k }}&nbsp;&nbsp;</span>
+                                </el-form-item>
+                                <el-form-item label="配套设施:">
+                                    <span v-for="ins in props.row.installation">{{ ins }}&nbsp;&nbsp;</span>
+                                </el-form-item>
+                            </div>
+                        </el-form>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="houseid" label="房屋编号" width="100" sortable></el-table-column>
+                <el-table-column prop="htitle" label="房屋标题"></el-table-column>
+                <el-table-column prop="hadr" label="房屋地址"></el-table-column>
+                <el-table-column prop="hstate" label="房屋状态" width="100"></el-table-column>
+                <el-table-column label="操作" style="width: auto;">
+                    <template slot-scope="props">
+                        <el-button v-if="props.row.hstate=='未通过'" size="mini" @click="openHos(props.row)" type="primary">编辑</el-button>
+                        <el-button v-if="props.row.hstate=='未通过'" size="mini" @click="why(props.row)" type="primary">查看原因</el-button>
+                        <el-button v-if="props.row.hstate=='待审核'" size="mini" type="info" disabled>不可操作</el-button>
+                        <el-button v-if="props.row.hstate=='已审核'" size="mini" @click="release(props.row)" type="success">发布</el-button>
+                        <el-button v-if="props.row.hstate=='待发布'" size="mini" @click="release(props.row)" type="success">发布</el-button>
+                        <el-button v-if="props.row.hstate=='已发布'" size="mini" @click="upfour(props.row)" type="warning">下架</el-button>
+                        <el-button v-if="props.row.hstate=='已出租'" size="mini" @click="openCus(props.row)" type="primary">查看合同</el-button>
+                        <!--<el-button v-if="props.row.state!='已发布'&&props.row.state!='已出租'" size="mini" type="primary"
+                                   plain disabled>不可操作
+                        </el-button>
+                        <el-button v-if="props.row.state=='已发布'" size="mini" @click="addTenant(props.row)"
+                                   type="success">出租
+                        </el-button>-->
+                    </template>
+                </el-table-column>
+            </el-table>
+        </el-main>
+        <el-footer>
+            <el-pagination
+                    @current-change="load"
+                    :current-page="current"
+                    :page-size="pageSize"
+                    layout="total,prev,pager,next,jumper"
+                    :total="total">
+            </el-pagination>
+        </el-footer>
+
+        <el-dialog title="房源信息" :visible.sync="housefrom" width="90%" center>
+            <el-form :model="hfrom" label-width="100px" :inline="true">
+                <input type="hidden" v-model="hfrom.id"/>
+                <el-form-item label="房屋编号">
+                    <el-input v-model="hfrom.houseid" :disabled="true" style="width: 90px;"></el-input>
+                </el-form-item>
+                <el-form-item label="房东姓名">
+                    <el-input v-model="hfrom.landlord" :disabled="true" style="width: 80px;"></el-input>
+                </el-form-item>
+                <el-form-item label="房屋标题">
+                    <el-input v-model="hfrom.htitle" style="width: 400px;"></el-input>
+                </el-form-item>
+                <el-form-item label="房屋地址">
+                    <el-input v-model="hfrom.hadr" style="width: 250px;"></el-input>
+                </el-form-item>
+                <el-form-item label="房屋租金">
+                    <el-input v-model="hfrom.hrent" style="width: 110px;"><template slot="append">元/月</template></el-input>
+                </el-form-item>
+                <el-form-item label="房屋楼层">
+                    <el-input v-model="hfrom.hfloor" :disabled="true" style="width: 80px;"><template slot="append">层</template></el-input>
+                </el-form-item>
+                <el-form-item label="房屋面积">
+                    <el-input v-model="hfrom.hspace" :disabled="true" style="width: 80px;"><template slot="append">㎡</template></el-input>
+                </el-form-item>
+                <el-form-item label="房屋朝向">
+                    <el-input v-model="hfrom.orientation" :disabled="true" style="width: 50px;"></el-input>
+                </el-form-item>
+                <el-form-item label="发布日期">
+                    <el-input v-model="hfrom.releasedate" :disabled="true" style="width: 120px;"></el-input>
+                </el-form-item>
+                <el-form-item label="封面图片地址">
+                    <el-input v-model="hfrom.himg" style="width: 220px;"><template slot="append">
+                        <el-tooltip placement="top">
+                            <div slot="content"><img width="300px" height="300px" :src="hfrom.himg" /></div>
+                            <el-button>查看</el-button>
+                        </el-tooltip>
+                    </template></el-input>
+                </el-form-item>
+            </el-form>
+
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="housefrom = false">取消</el-button>
+                <el-button type="primary" @click="updateHos">提交</el-button>
+            </div>
+        </el-dialog>
+
+        <!--合同显示框-->
+        <el-dialog title="房屋租赁合同" :visible.sync="cusfrom" width="53%" center>
+            <el-form :model="cfrom" label-width="100px" :inline="false">
+                <!--<input type="hidden" name="house_id" value="${hetong.house_id}"/>-->
+                <p>出租方：{{cfrom.ename}}（以下简称甲方）        身份证号：{{cfrom.ecard}}</p>　　　
+                <p>承租方：{{cfrom.cname}}（以下简称乙方）        身份证号：{{cfrom.ccard}}　</p>　
+                <p>租赁房屋地址：{{cfrom.hadr}}　</p>　
+                <p>依据《中华人民共和国合同法》有关条款，甲乙双方经过充分协商，就乙方租赁甲方房屋事宜达成如下协议：</p>
+                <p>一、乙方租赁甲方房屋，以下简称租赁房屋。</p>
+                <p>二、起租时间：{{cfrom.begintime}}，退租时间：{{cfrom.endtime}}。
+                    在合同签订之日，乙方需向甲方支付房屋租金￥{{cfrom.hrend}}。如续租，请提前3天通知甲方，并重新办理租赁手续。<br /></p>　　　　
+                <p>三、违约处理：</p>　
+                <p>甲方违约：</p>　
+                <p>1．如甲方未能及时将押金退还乙方，甲方每天应按押金的2％向乙方支付违约金；</p>
+                <p>2．如甲方提供的维修服务项目与协议不相符，乙方有权提前退租，甲方应全额退还剩余的租金。</p>
+                <p>乙方违约：</p>　　
+                <p>1．如乙方不按时缴纳租金，甲方有权在其押金中扣除，同时收回房屋，所有损失由乙方负责；</p>　
+                <p>2．如果乙方在租赁期限未满时退租，甲方仅退还剩余租金的40％（租期未满一个月的不在此例）；</p>　
+                <p>四、本协议书一式两份，甲乙双方各执一份；本协议甲乙双方签字后生效。补充协议亦属于合同的一部分。</p>　
+                　<br />　　甲方（盖章）：_________　　　　　　　　乙方（盖章）：_________　　<br />　
+                　法定代表人（签字）：_________　　　　　法定代表人（签字）：_________　　<br />　　
+                担保人（签章）：_________　　<br />　　
+                _________年____月____日　　　　　　　　_________年____月____日　　<br />　　
+                签订地点：_________　　　　　　　　　　签订地点：_________ <br/>
+
+                <p>
+                <div class="button">
+                    <el-button @click="cusfrom = false">打印合同</el-button>
+                </div>
+                </p>
+
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="cusfrom = false">关闭</el-button>
+            </div>
+        </el-dialog>
+
+
+    </el-container>
+</div>
+<script>
+    new Vue({
+        el: "#role",
+        data: {
+            tableData: [], //数据表格
+            total: 0, //总数
+            pageSize: 5, //每页条数
+            current: 1, //当前页数
+            hadr: "", //查询条件
+            housefrom: false,
+            hfrom: {},
+            cusfrom:false,
+            cfrom:{},//房客信息
+        },
+        mounted: function () {
+            this.load(1);
+        },
+        methods: {
+            load: function (current) {
+                //获取对应经纪人的房源
+                var _this = this;
+                $.ajax({
+                    type: "post",
+                    dataType: "json",
+                    url: "/house/agentHouse/" + current + "/" + this.pageSize,
+                    data: {hadr: _this.hadr},
+                    success: function (data) {
+                        //console.log(data);
+                        _this.tableData = data.object;
+                        _this.total = data.total;
+                        _this.pageSize = 5;
+                    }
+                });
+            },
+            //查看驳回原因
+            why:function(row){
+                this.$alert(row.examine, '驳回原因', {
+                    confirmButtonText: '确定',
+                })
+            },
+            //发布
+            release: function (row) {
+                //更改已审核或者是待发布的房源状态为已发布
+                var _this = this;
+                $.ajax({
+                    type: "post",
+                    url: "/house/updateThree",
+                    data:{id:row.id},
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code == 200) {
+                            _this.$message({
+                                message: data.msg,
+                                type: 'success'
+                            });
+                            _this.load(1); //刷新数据表格
+                        } else {
+                            _this.$message.error(data.msg);
+                        }
+                    }
+                });
+            },
+            //下架
+            upfour: function (row) {
+                //修改已发布的房源状态为待发布(1)
+                var _this = this;
+                $.ajax({
+                    type: "post",
+                    url: "/house/updateFourHouse",
+                    data:{id:row.id},
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code == 200) {
+                            _this.$message({
+                                message: data.msg,
+                                type: 'success'
+                            });
+                            _this.load(1); //刷新数据表格
+                        } else {
+                            _this.$message.error(data.msg);
+                        }
+                    }
+                });
+            },
+            //编辑
+            openHos:function(row){
+                this.housefrom=true;
+                this.hfrom=row;
+            },
+            //查看合同
+            openCus:function(row){
+                //我的房源里面可以查看已出租的房屋合同
+                //四表（customer,house,rented,employee）
+                var _this=this;
+                $.ajax({
+                    type: "post",
+                    url: "/contract/getContract",
+                    data: {hid:row.id},
+                    async:false,
+                    dataType: "json",
+                    success: function (data) {
+                        _this.cfrom=data;
+                        _this.cfrom.ccard=data.ccard;
+                    }
+                });
+                _this.cusfrom=true;
+            },
+
+            //被驳回的房源被经纪人修改后重新提交，等待审核
+            updateHos:function() {
+                //针对下级经纪人操作被驳回的房源的操作，重新修改之后，修改未通过的房源状态为待审核(2)
+
+                var _this=this;
+               // alert(JSON.stringify( _this.hfrom));
+                $.ajax({
+                    type: "post",
+                    url: "/house/updateTwoHouse",
+                    //传字符串过去，用RequestBody接受
+                    contentType:"application/json",
+                    data:JSON.stringify( _this.hfrom),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code == 200) {
+                            _this.$message({
+                                message: data.msg,
+                                type: 'success'
+                            });
+                            _this.housefrom = false;
+                            _this.load(1); //刷新数据表格
+                        } else {
+                            this.$message.error(data.msg);
+                        }
+                    }
+                });
+            },
+        }
+    })
+</script>
+</body>
+</html>

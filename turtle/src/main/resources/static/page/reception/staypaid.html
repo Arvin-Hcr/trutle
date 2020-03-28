@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瑰居</title>
+    <link rel="icon" href="../../resources/images/favicon.ico"/>
+    <script src="../../resources/js/jquery.js"></script>
+    <script src="../../resources/vue/vue.js"></script>
+    <script src="../../resources/js/ele.js"></script>
+    <link href="../../resources/css/ele.css" rel="stylesheet">
+    <style>
+        #role {
+            height: 100%;
+            background-color: #DCDFE6;
+        }
+
+        #role img {
+            width: 50px;
+            margin-left: 5px;
+            margin-top: 0px;
+            float: left
+        }
+
+        #role h1 {
+            float: left;
+        }
+
+        body .el-container {
+            height: 100%;
+            margin-bottom: 40px;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+        }
+
+        .el-header, .el-footer {
+            background-color: #E4E7ED;
+            color: #333;
+            text-align: center;
+        }
+
+        .el-main {
+            height: 400px;
+            background-color: #EBEEF5;
+            color: #333;
+            text-align: center;
+        }
+
+        .el-main .el-table {
+            background-color: #F2F6FC;
+        }
+
+        .el-pagination {
+            margin-top: 15px;
+        }
+
+        #eform {
+            text-align: left;
+            float: right;
+        }
+
+        .el-form-item {
+            margin-top: 10px;
+        }
+
+        .el-table td, .el-table th {
+            text-align: center;
+        }
+
+        .yc {
+            text-align: left;
+        }
+
+        .yc .el-form-item {
+            width: 250px;
+            margin-bottom: 0px;
+            margin-left: 27px;
+        }
+
+        .el-input-group__append, .el-input-group__prepend {
+            padding: 0 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="role">
+    <el-container>
+        <el-main>
+            <el-table :data="tableData">
+                <el-table-column prop="houseid" label="房屋编号"  sortable></el-table-column>
+                <el-table-column prop="hadr" label="房屋地址"  sortable></el-table-column>
+                <el-table-column prop="tenant" label="租户姓名"></el-table-column>
+                <el-table-column prop="hrend" label="租金"></el-table-column>
+                <el-table-column prop="data" label="截止日期" ></el-table-column>
+                <el-table-column prop="name" label="缴租状态" ></el-table-column>
+                <el-table-column label="操作" style="width: auto;">
+                    <template slot-scope="scope">
+                        <el-button
+                                size="mini"
+                                @click="shouzu(scope.row)"
+                                type="primary">交租</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </el-main>
+
+        <el-footer>
+            <el-pagination
+                    @current-change="currentChange"
+                    :current-page="current"
+                    :page-size="pageSize"
+                    layout="total,prev,pager,next,jumper"
+                    :total="total">
+            </el-pagination>
+        </el-footer>
+    </el-container>
+
+</div>
+<script>
+    new Vue({
+        el: "#role",
+        data: {
+            tableData: [], //数据表格
+            total: 0, //总数
+            pageSize: 5, //每页条数
+            current: 1, //当前页数
+
+
+            paidform: false,//出租弹框
+            paid: {},  //出租弹框里的表单
+            houseid: "", //当前行的房源id
+            tenantid: "", //当前行的租客id
+            tenant: "", //当前行的租客姓名
+            hadr: "",//当前行房源地址
+            ladr:"",//模糊查询
+            rentmonth: "", //当前行的房源月租金
+
+            data: ""
+
+
+        },
+        mounted: function () {
+            this.load();
+        },
+        methods: {
+            //读取页面的时候
+            //获取所有联系房源
+            load: function () {
+                var _this = this;
+                $.ajax({
+                    type: "post",
+                    dataType: "json",
+                    url: "/paid/staypaid/" + this.current + "/" + this.pageSize,
+                    data: {hadr: _this.ladr},
+                    success: function (data) {
+                        _this.tableData = data.object;
+                        _this.total = data.total;
+                        _this.pageSize = 5;
+                    }
+                });
+            },
+            currentChange:function(current){
+                this.current=current;
+                this.load();
+            },
+            //点击交租
+            //交租的弹框弹出
+            shouzu: function (row) {
+                var _this = this;
+                $.ajax({
+                    type: "post",
+                    dataType: "json",
+                    url: "/paid/update",
+                    data: {id:row.houseid},
+                    success: function (data) {
+                        if (data==true){
+                            _this.$message({
+                                message: '交租成功',
+                                type: 'success'
+                            });
+                            _this.load(1);
+                        }else{
+                            _this.$message({
+                                message: '交租失败',
+                                type: 'warning'
+                            });
+                        }
+
+                    }
+                });
+            }
+
+        }
+    })
+
+</script>
+</body>
+</html>

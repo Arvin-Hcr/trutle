@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瑰居</title>
+    <link rel="icon" href="../../resources/images/favicon.ico"/>
+    <script src="../../resources/vue/vue.js"></script>
+    <script src="../../resources/js/jquery.js"></script>
+    <script src="../../resources/antd/moment.js"></script>
+    <script src="../../resources/antd/antd.min.js"></script>
+    <script src="../../resources/antd/ant-design-vue.js"></script>
+    <link href="../../resources/antd/antd.min.css" rel="stylesheet">
+    <script src="../../resources/js/ele.js"></script>
+    <link href="../../resources/css/ele.css" rel="stylesheet">
+</head>
+<style>
+    #ulinfo li {
+        list-style: none;
+        float: left;
+        padding: 5px;
+        background-color: lightgray;
+        border-radius: 5px;
+        margin-right: 5px;
+        font-size: 10px;
+    }
+
+    #zflist a {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    #zflist span {
+        margin-right: 10px;
+    }
+
+    .ant-list-item-meta-description span {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .ant-list-item-meta-description p {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+    #price {
+        color: red;
+        font-size: 20px;
+        float: right;
+    }
+
+    .ant-list-item-meta-title {
+        margin-bottom: 15px;
+    }
+
+    .ant-list-item-meta-content {
+        margin-left: 30px;
+    }
+
+    .ant-list-item-meta-description {
+        font-size: 15px;
+    }
+</style>
+<body>
+<div id="house">  <!--（乔 新增）-->
+    <div>
+        <h1 style="display: inline;">共租赁
+            <span style="color: red;font-size:28px;display: inline;">{{count}}</span>
+            套 房源
+        </h1>
+    </div>
+    <div>
+        <a-list id="zflist" itemLayout="horizontal" locale="locale">
+            <a-list-item v-for="item in listData" :id="item.id">
+                <a-list-item-meta>
+                    <a slot="title">{{item.htitle}}</a>
+                    <span slot="description">{{item.hadr}}/</span>
+                    <span slot="description">{{item.hspace}}㎡/</span>
+                    <span slot="description">{{item.orientation}}/</span>
+                    <span slot="description">{{item.hdesc}}</span>
+                    <span id="price" slot="description">{{item.hrent}}<span slot="description">元/月</span></span>
+                    <p slot="description">
+                        <a-icon type="clock-circle"></a-icon>&nbsp;{{item.newstime}}天前发布
+                    </p>
+                    <ul id="ulinfo" slot="description" style="padding-left: 0px;">
+                        <li slot="description" v-for="(k,index) in item.desctag">{{k}}</li>
+                    </ul>
+                    <p slot="description">
+                        <span style="float: right">
+                            <a-button type="primary" @click="repairs(item.id)" style="padding: 0;margin: 0;padding-left: 5px"  type="mini">报修</a-button>
+                        </span>
+                    </p>
+                    <img width="170px" height="120px" slot="avatar" :src="item.himg"/>
+                </a-list-item-meta>
+            </a-list-item>
+        </a-list>
+    </div>
+    <el-dialog title="报修信息" :visible.sync="repairsMessage" width="70%" center>
+        <el-form :model="form">
+                <el-input v-model="form.houseid" autocomplete="off" type="hidden"></el-input>
+                <el-input v-model="form.tenantid" autocomplete="off" type="hidden"></el-input>
+            <el-form-item label="租户姓名" :label-width="formLabelWidth">
+                <el-input v-model="form.cname" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="房屋地址" :label-width="formLabelWidth">
+                <el-input v-model="form.hadr" autocomplete="off"></el-input>
+            </el-form-item>
+<!--            <el-form-item label="报障时间" :label-width="formLabelWidth">-->
+<!--                <el-date-picker-->
+<!--                        v-model="form.data"-->
+<!--                        type="date"-->
+<!--                        placeholder="选择日期">-->
+<!--                </el-date-picker>-->
+<!--            </el-form-item>-->
+            <el-form-item label="报修详情" :label-width="formLabelWidth">
+                <el-input type="textarea" v-model="form.detail"></el-input>
+            </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="repairsMessage = false">取 消</el-button>
+            <el-button type="primary" @click="saveWrong">确 定</el-button>
+        </div>
+    </el-dialog>
+</div>
+</body>
+<script>
+    new Vue({
+        el: "#house",
+        data: {
+            listData: [],
+            count: 0,
+            repairsMessage:false,
+            form:{},
+            formLabelWidth:"120px"
+        },
+        mounted: function () {
+            this.load();
+        },
+        methods: {
+            load: function () {
+                var _this = this;
+                $.ajax({
+                    type: "post",
+                    dataType: "json",
+                    url: "/house/myRentHouse",
+                    success: function (data) {
+                        console.log(data)
+                        _this.listData = data.object;
+                        _this.count = data.total;
+                    }
+                });
+            },
+            repairs:function (id) {
+                var _this=this;
+                this.repairsMessage=true;
+                $.ajax({
+                    type:"post",
+                    dataType:"json",
+                    data:_this.form,
+                    url:"/house/myRepairs/"+id,
+                    success:function (data) {
+                        _this.form=data
+                    }
+                })
+            },
+            saveWrong:function () {
+                var _this=this;
+               $.ajax({
+                   type:"post",
+                   dataType:"json",
+                   contentType : 'application/json;charset=utf-8',
+                   data:JSON.stringify(_this.form),
+                   url:"/wrong/saveWrong",
+                   success:function (data) {
+                       if (data.code==200){
+                           _this.$message({
+                               message: data.msg,
+                               type: 'success'
+                           });
+                           _this.load(1); //刷新数据表格
+                           _this.repairsMessage=false;
+                       }
+                   }
+               })
+            }
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height">
+    <title>瑰居</title>
+    <style>::-webkit-scrollbar{display:none;}html,body{overflow:hidden;height:100%;margin:0;}</style>
+</head>
+<body>
+<div id="mountNode"></div>
+<script>/*Fixing iframe window.innerHeight 0 issue in Safari*/document.body.clientHeight;</script>
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g2-3.5.1/dist/g2.min.js"></script>
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.10.1/dist/data-set.min.js"></script>
+<script src="https://gw.alipayobjects.com/os/antv/assets/lib/jquery-3.2.1.min.js"></script>
+<script>
+    $.getJSON('http://localhost:8081/chart/rentOutNumber?year=2019', function(data) {
+
+        var chart = new G2.Chart({
+            container: 'mountNode',
+            forceFit: true,
+            height: window.innerHeight,
+            padding: [30, 20, 70, 30]
+        });
+
+        chart.axis('date', {
+            label: {
+                textStyle: {
+                    fill: '#aaaaaa'
+                }
+            }
+        });
+        chart.axis('All', {
+            label: {
+                textStyle: {
+                    fill: '#aaaaaa'
+                }
+            }
+        });
+        chart.axis('My', false);
+
+        chart.tooltip({
+            crosshairs: false
+        });
+        chart.legend({
+            position: 'top-center'
+        });
+
+        chart.source(data, {
+            My: {
+                min: 0,
+                max: 20
+            },
+            All: {
+                min: 0,
+                max: 20
+            }
+        });
+        chart.line().position('date*All').color('#1890ff');
+        chart.line().position('date*My').color('#2fc25b');
+        /*chart.guide().dataMarker({
+            top: true,
+            position: ['2019-07', 7],
+            lineLength: 30,
+            content: '出租量最高',
+            style: {
+                text: {
+                    textAlign: 'left',
+                    fontSize: 12,
+                    stroke: 'white',
+                    lineWidth: 2,
+                    fontWeight: 10
+                },
+                point: {
+                    stroke: '#1890ff',
+                    r: 4
+                }
+            }
+        });*/
+
+        chart.render();
+    });
+</script>
+</body>
+</html>
+

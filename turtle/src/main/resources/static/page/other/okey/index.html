@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="hb-loaded">
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<title>jQuery创意网站建设中即将开放倒计时代码</title>
+
+<link rel="stylesheet" type="text/css" media="all" href="css/style.css" /> 
+
+<script type="text/javascript" src="js/jquery-1.3.2.js"></script> 
+<script type="text/javascript" src="js/jquery.countdown.js"></script> 
+<script type="text/javascript" src="js/DD_belated.js"></script> <!--IE6 png图片处理-->
+<script type="text/javascript">
+$(function () {
+	$('#defaultCountdown').countdown({
+		since: new Date(2020, 9-15, 20, 0, 0, 0 ),// change this date to match yours, format is year, month-1, day, hour(24), min, sec
+		format: 'ODHMS'
+	});
+});
+</script> 
+
+</head> 
+<body><script src="/demos/googlegg.js"></script>
+
+<div id="wrap"> 
+	<div id="logo"> 
+		<a href="#"><img class="png" src="images/logo.png" border="0" alt="返回网站首页" /></a> 
+	</div> 
+	<div id="container"> 
+		<ul id="lsn"> 
+			<li id="uctext"><h2></h2></li> 
+			<li id="uccounter"> 
+				<div id="defaultCountdown"></div> 
+				<div id="overlay"></div> 
+				<div id="overlay_2">
+				<img class="png" src="images/ks.png" alt="这里记录瑰居从开始到现在" />
+				</div>
+			</li> 
+		</ul> 
+	</div> 
+</div>
+</body>
+</html>

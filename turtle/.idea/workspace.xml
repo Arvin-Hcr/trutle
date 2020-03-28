@@ -1,8 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61f4eb15-0bf0-4a6f-a038-3224a146602d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/turtle/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/turtle/pom.xml" afterDir="false" />
+    <list default="true" id="6695cc64-b86c-460d-a49b-7c72d2e3e4c6" name="Default Changelist" comment="增加每月租金统计功能">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/Charts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/CusState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/CustomerAPP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/EmpState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/TurtleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/TurtleApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/ChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/ChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/ContractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/EmpImgController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/EmpImgController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/HouseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/HouseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/HouseimgController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/HouseimgController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/NewHouseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/NewHouseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/PaidController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/PaidController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/PermissionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/controller/WrongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/controller/WrongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/Charts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/CusState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/CustomerAPP.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/EmpState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/FollowHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/FollowHouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/HouseImgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/HouseImgs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/HouseState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/HouseState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/Houses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/Houses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/LeadHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/LeadHouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/PaidHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/PaidHouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/Rented.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/Rented.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/RentedandCus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/RentedandCus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/Seehistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/Seehistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/Tree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/entiey/Wrong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/entiey/Wrong.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/mapper/ChartMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/mapper/ChartMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/mapper/ContractMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/mapper/ContractMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/mapper/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/mapper/CustomerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/mapper/EmployeeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/mapper/HouseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/mapper/HouseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/mapper/MenuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/mapper/MenuMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/mapper/NewHouseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/mapper/NewHouseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/mapper/PaidMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/mapper/PaidMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/mapper/PermissionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/mapper/RoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/mapper/WrongMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/mapper/WrongMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/ChartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/ChartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/ContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/HouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/HouseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/MenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/NewHouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/NewHouseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/PaidService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/PaidService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/PermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/WrongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/WrongService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/ChartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/ChartServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/ContractServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/ContractServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/HouseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/HouseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/LoginServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/MenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/NewHouseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/NewHouseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/PaidServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/PaidServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/PermissionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/service/impl/WrongServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/service/impl/WrongServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/util/CusUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/util/CusUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/util/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/util/DateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/util/EmpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/util/EmpUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/util/ISysConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/util/ISysConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/util/MD5Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/util/MD5Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/util/OtherUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/util/OtherUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/util/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/util/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/util/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/util/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/util/SmsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/util/SmsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhouduo/turtle/util/UploadUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hcr/turtle/util/UploadUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/redis.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/redis.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/zhouduo/turtle/TurtleApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hcr/turtle/TurtleApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,14 +102,85 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="turtle" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>erole</find>
+      <find>installation</find>
+      <find>houselabelInsert</find>
+      <find>rid</find>
+      <find>addEmp</find>
+      <find>updateEmp</find>
+      <find>saveEmp</find>
+      <find>saveEmprole</find>
+      <find>updateCustomer</find>
+      <find>getAllHosState</find>
+      <find>hossta</find>
+      <find>update</find>
+      <find>updateHouseInfo</find>
+      <find>save</find>
+      <find>updateCus</find>
+      <find>saveCus</find>
+      <find>housfrom</find>
+      <find>updateStateTwo</find>
+      <find>uphos</find>
+      <find>updateTwo</find>
+      <find>houseform</find>
+      <find>hfrom</find>
+      <find>ladr</find>
+      <find>rules</find>
+      <find>lphone</find>
+      <find>hlable</find>
+      <find>row</find>
+      <find>updateTwoHouse</find>
+      <find>all</find>
+      <find>hfloor</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>My</replace>
+      <replace>All</replace>
+      <replace>paidform</replace>
+      <replace>paid</replace>
+      <replace>ladr</replace>
+      <replace>turtle</replace>
+      <replace>houseform</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/turtle" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="F:/kuangjia/apache-maven-3.3.1" />
-        <option name="userSettingsFile" value="F:\kuangjia\apache-maven-3.3.1\conf\settings.xml" />
+        <option name="localRepository" value="F:\kuangjia\maven1" />
+        <option name="mavenHome" value="F:/kuangjia/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="F:\kuangjia\apache-maven-3.6.1\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -31,7 +192,7 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="1Xq225qWmbXnaUmc7aj9NoGSY0V" />
+  <component name="ProjectId" id="1Xq2sWQ1Ux7BGZh1RAXrg038dOW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -39,37 +200,428 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/turtle" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565340899702" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zhouduo.turtle.service.impl" />
+      <recent name="com.zhouduo.turtle.service" />
+      <recent name="com.zhouduo.turtle.mapper" />
+      <recent name="com.zhouduo.turtle.entiey" />
+      <recent name="com.zhouduo.turtle.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/resources/echarts" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/page/backstage" />
+      <recent name="$PROJECT_DIR$/target/classes/static/resources/images/houses" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/resources/images/houses" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/page/other" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.TurtleApplication (1)">
+    <configuration name="SmsUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zhouduo.turtle.util.SmsUtil" />
+      <module name="turtle" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zhouduo.turtle.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TurtleApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="turtle" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hcr.turtle.TurtleApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TurtleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="turtle" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zhouduo.turtle.TurtleApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.TurtleApplication (1)" />
+        <item itemvalue="Application.SmsUtil" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
         <serviceView>
+          <option name="contentProportion" value="0.14412569" />
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Not Started" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
       </list>
     </option>
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6695cc64-b86c-460d-a49b-7c72d2e3e4c6" name="Default Changelist" comment="" />
+      <created>1563765775590</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1563765775590</updated>
+      <workItem from="1563765788824" duration="813000" />
+      <workItem from="1563766995570" duration="257000" />
+      <workItem from="1563799058673" duration="9317000" />
+      <workItem from="1563842466779" duration="2813000" />
+      <workItem from="1563893698388" duration="5116000" />
+      <workItem from="1563927665338" duration="6473000" />
+      <workItem from="1563949457172" duration="309000" />
+      <workItem from="1564015385660" duration="1472000" />
+      <workItem from="1564039562773" duration="3605000" />
+      <workItem from="1564058116651" duration="643000" />
+      <workItem from="1564101108539" duration="1172000" />
+      <workItem from="1564105568560" duration="11455000" />
+      <workItem from="1564187445564" duration="14508000" />
+      <workItem from="1564216124399" duration="739000" />
+      <workItem from="1564300976912" duration="2013000" />
+      <workItem from="1564380267026" duration="5592000" />
+      <workItem from="1564389134172" duration="12483000" />
+      <workItem from="1564446785749" duration="28308000" />
+      <workItem from="1564532916300" duration="9208000" />
+      <workItem from="1564554142440" duration="3754000" />
+      <workItem from="1564568150674" duration="9633000" />
+      <workItem from="1564621482834" duration="2565000" />
+      <workItem from="1564624105898" duration="6022000" />
+      <workItem from="1564638186330" duration="4167000" />
+      <workItem from="1564724309448" duration="10595000" />
+      <workItem from="1564741145091" duration="1180000" />
+      <workItem from="1564742335060" duration="7980000" />
+      <workItem from="1564811464768" duration="7716000" />
+      <workItem from="1564819502364" duration="760000" />
+      <workItem from="1564820268113" duration="3916000" />
+      <workItem from="1564824280966" duration="560000" />
+      <workItem from="1564894228007" duration="442000" />
+      <workItem from="1564909231648" duration="2425000" />
+      <workItem from="1564964711407" duration="8448000" />
+      <workItem from="1564979106798" duration="254000" />
+      <workItem from="1564979477081" duration="17633000" />
+      <workItem from="1565052360803" duration="3490000" />
+      <workItem from="1565072807157" duration="9828000" />
+      <workItem from="1565086732205" duration="3619000" />
+      <workItem from="1565137459881" duration="19660000" />
+      <workItem from="1565180450567" duration="5394000" />
+      <workItem from="1565186029423" duration="56000" />
+      <workItem from="1565224068211" duration="18578000" />
+      <workItem from="1565313213306" duration="4357000" />
+      <workItem from="1585395001837" duration="1010000" />
+    </task>
+    <task id="LOCAL-00001" summary="项目第一次提交到本地仓库！">
+      <created>1564124345981</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1564124345981</updated>
+    </task>
+    <task id="LOCAL-00002" summary="提交到分支测试">
+      <created>1564126546747</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1564126546747</updated>
+    </task>
+    <task id="LOCAL-00003" summary="短信注册功能修改">
+      <created>1564134049367</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1564134049367</updated>
+    </task>
+    <task id="LOCAL-00004" summary="本次完成了图表页功能，能以图表的形式展示每月总共出租的房屋数量已经登录的经纪人的个人业绩，放在一起做对比">
+      <created>1564302707966</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1564302707966</updated>
+    </task>
+    <task id="LOCAL-00005" summary="后台管理员新增收租功能，显示所有未交租房源，待缴租房源，已交租房源">
+      <created>1564474331519</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1564474331520</updated>
+    </task>
+    <task id="LOCAL-00006" summary="在我的房源中增加查看合同功能，前台单个房源详情页面基础设施动态显示">
+      <created>1564579009542</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1564579009542</updated>
+    </task>
+    <task id="LOCAL-00007" summary="实现前台个人中心中用户可以报修，后台管理员可以处理保修功能">
+      <created>1564639876668</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1564639876668</updated>
+    </task>
+    <task id="LOCAL-00008" summary="修改部分前台显示">
+      <created>1564820194894</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1564820194894</updated>
+    </task>
+    <task id="LOCAL-00009" summary="重新更新前台样式，上次更新的有问题">
+      <created>1564823307752</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1564823307752</updated>
+    </task>
+    <task id="LOCAL-00010" summary="修改关注房源数量显示问题">
+      <created>1564932514452</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1564932514452</updated>
+    </task>
+    <task id="LOCAL-00011" summary="修改收租计算功能，必须租用三个月，一次交三个月的钱，并且调整手续费的比例">
+      <created>1564970936554</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1564970936555</updated>
+    </task>
+    <task id="LOCAL-00012" summary="房源显示部分修改">
+      <created>1565000084313</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1565000084313</updated>
+    </task>
+    <task id="LOCAL-00013" summary="增加微信扫码下载瑰居app功能">
+      <created>1565003807266</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1565003807266</updated>
+    </task>
+    <task id="LOCAL-00014" summary="修改前台首页背景，整理修改后台登录界面">
+      <created>1565010986523</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1565010986523</updated>
+    </task>
+    <task id="LOCAL-00015" summary="修改身份证长度问题">
+      <created>1565081458008</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1565081458008</updated>
+    </task>
+    <task id="LOCAL-00016" summary="修改后台首页内容">
+      <created>1565089265341</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1565089265341</updated>
+    </task>
+    <task id="LOCAL-00017" summary="细节问题">
+      <created>1565174394135</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1565174394135</updated>
+    </task>
+    <task id="LOCAL-00018" summary="修改部分出现的空字符串问题">
+      <created>1565228270761</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1565228270761</updated>
+    </task>
+    <task id="LOCAL-00019" summary="增加每月租金统计功能">
+      <created>1565257404171</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1565257404171</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.yml" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="项目第一次提交到本地仓库！" />
+    <MESSAGE value="提交到分支测试" />
+    <MESSAGE value="短信注册功能修改" />
+    <MESSAGE value="本次完成了图表页功能，能以图表的形式展示每月总共出租的房屋数量已经登录的经纪人的个人业绩，放在一起做对比" />
+    <MESSAGE value="后台管理员新增收租功能，显示所有未交租房源，待缴租房源，已交租房源" />
+    <MESSAGE value="在我的房源中增加查看合同功能，前台单个房源详情页面基础设施动态显示" />
+    <MESSAGE value="实现前台个人中心中用户可以报修，后台管理员可以处理保修功能" />
+    <MESSAGE value="修改部分前台显示" />
+    <MESSAGE value="重新更新前台样式，上次更新的有问题" />
+    <MESSAGE value="修改关注房源数量显示问题" />
+    <MESSAGE value="修改收租计算功能，必须租用三个月，一次交三个月的钱，并且调整手续费的比例" />
+    <MESSAGE value="房源显示部分修改" />
+    <MESSAGE value="增加微信扫码下载瑰居app功能" />
+    <MESSAGE value="修改前台首页背景，整理修改后台登录界面" />
+    <MESSAGE value="修改身份证长度问题" />
+    <MESSAGE value="修改后台首页内容" />
+    <MESSAGE value="细节问题" />
+    <MESSAGE value="修改部分出现的空字符串问题" />
+    <MESSAGE value="增加每月租金统计功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加每月租金统计功能" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="613" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1581759199629">
+    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1582969584692">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="613" y="321" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.864@0.0.1536.864" timestamp="1581759199629" />
-    <state x="548" y="186" key="FileChooserDialogImpl" timestamp="1581759509673">
+    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1582969584692" />
+    <state x="540" y="289" width="455" height="296" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582610535114">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="548" y="186" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1581759509673" />
-    <state x="262" y="73" key="SettingsEditor" timestamp="1581759125582">
+    <state x="540" y="289" width="455" height="296" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1582610535114" />
+    <state x="397" y="17" key="CommitChangelistDialog2" timestamp="1582797202167">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="262" y="73" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1581759125582" />
+    <state x="397" y="17" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1582797202167" />
+    <state x="548" y="186" key="FileChooserDialogImpl" timestamp="1585395038549">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="548" y="186" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1585395038549" />
+    <state width="1252" height="215" key="GridCell.Tab.0.bottom" timestamp="1585396030785">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1585396030785" />
+    <state width="1252" height="215" key="GridCell.Tab.0.center" timestamp="1585396030785">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1585396030785" />
+    <state width="1252" height="215" key="GridCell.Tab.0.left" timestamp="1585396030785">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1585396030785" />
+    <state width="1252" height="215" key="GridCell.Tab.0.right" timestamp="1585396030785">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1585396030785" />
+    <state width="1252" height="215" key="GridCell.Tab.1.bottom" timestamp="1585396030785">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1585396030785" />
+    <state width="1252" height="215" key="GridCell.Tab.1.center" timestamp="1585396030785">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1585396030785" />
+    <state width="1252" height="215" key="GridCell.Tab.1.left" timestamp="1585396030785">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1585396030785" />
+    <state width="1252" height="215" key="GridCell.Tab.1.right" timestamp="1585396030785">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1585396030785" />
+    <state width="1252" height="215" key="GridCell.Tab.2.bottom" timestamp="1585396030786">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.2.bottom/0.0.1536.864@0.0.1536.864" timestamp="1585396030786" />
+    <state width="1252" height="215" key="GridCell.Tab.2.center" timestamp="1585396030785">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.2.center/0.0.1536.864@0.0.1536.864" timestamp="1585396030785" />
+    <state width="1252" height="215" key="GridCell.Tab.2.left" timestamp="1585396030785">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.2.left/0.0.1536.864@0.0.1536.864" timestamp="1585396030785" />
+    <state width="1252" height="215" key="GridCell.Tab.2.right" timestamp="1585396030786">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1252" height="215" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1585396030786" />
+    <state x="581" y="141" key="RollbackChangesDialog" timestamp="1582797199514">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="581" y="141" key="RollbackChangesDialog/0.0.1536.864@0.0.1536.864" timestamp="1582797199514" />
+    <state x="262" y="13" key="SettingsEditor" timestamp="1585395039330">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="262" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1585395039330" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1585395904571">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1585395904571" />
+    <state x="552" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582797261339">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="552" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1582797261339" />
+    <state x="420" y="126" key="new project wizard" timestamp="1582721371384">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="420" y="126" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1582721371384" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1582796450542">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1582796450542" />
   </component>
 </project>
